@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF‑8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terima Kasih LF BARAKAH</title>
+<title>Last Day Intern LF BARAKAH</title>
 <style>
-body {font-family:'Quicksand', sans-serif; margin:0; padding:0; text-align:center; background:#f7f7f7;}
-section {padding:60px 20px; display:none;}
-section.active {display:block;}
-.wp img {width:100%; max-width:600px; border-radius:15px;}
-.stiker {width:150px; margin-top:20px;}
-h1,h2 {color:#0077cc;}
-p {font-size:18px; max-width:600px; margin:15px auto;}
-a.button {display:inline-block; padding:10px 20px; background:#0077cc; color:#fff; text-decoration:none; border-radius:8px; margin-top:20px;}
+body { font-family: 'Quicksand', sans-serif; text-align: center; background: #fafafa; margin: 0; padding: 20px;}
+section { padding: 50px 10px;}
+.wp img { width: 100%; max-width: 500px; border-radius: 15px;}
+.button { display: inline-block; margin: 15px; padding: 10px 20px; background: #0077cc; color: #fff; text-decoration: none; border-radius: 8px;}
 </style>
 </head>
 <body>
 
-<!-- Section 1 -->
-<section class="active">
-    <div class="wp">
-        <img src="https://i.imgur.com/PLACEHOLDER_BG1.jpg" alt="Gambar Office">
-    </div>
-    <img class="stiker" src="https://i.imgur.com/PLACEHOLDER_STICKER1.gif" alt="Sticker">
-    <h1>Terima Kasih LF BARAKAH</h1>
-    <p>Atas peluang dan bimbingan sepanjang tempoh latihan industri saya 🌱</p>
-    <p>Pengalaman ini sangat bermakna dan akan saya bawa selamanya</p>
-    <a href="#" class="button" onclick="nextSection(1)">Next ➡</a>
+<!-- Embed Lagu (SoundCloud / YouTube) -->
+<div>
+  <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/junaidi-cmc/kapilla-merindu-tanpa-kata&auto_play=true"></iframe>
+</div>
+
+<section id="page1">
+  <div class="wp">
+    <img src="https://i.imgur.com/PLACEHOLDER_BG1.jpg" alt="Office">
+  </div>
+  <h1>Terima Kasih LF BARAKAH</h1>
+  <p>Terima kasih atas peluang dan pengalaman intern saya 🌱</p>
+  <a href="#page2" class="button">Next ➡</a>
 </section>
 
-<!-- Section 2 -->
-<section>
-    <div class="wp">
-        <img src="https://i.imgur.com/PLACEHOLDER_BG2.jpg" alt="Kenangan Office">
-    </div>
-    <img class="stiker" src="https://i.imgur.com/PLACEHOLDER_STICKER2.gif" alt="Sticker">
-    <h2>Kenangan Terbaik</h2>
-    <p>Saya berterima kasih kepada semua staf LF BARAKAH atas tunjuk ajar dan nasihat yang diberikan</p>
-    <a href="#" class="button" onclick="nextSection(2)">Next ➡</a>
-    <a href="#" class="button" onclick="prevSection(0)">⬅ Back</a>
+<section id="page2" style="display:none;">
+  <div class="wp">
+    <img src="https://i.imgur.com/PLACEHOLDER_BG2.jpg" alt="Kenangan">
+  </div>
+  <h2>Kenangan Terbaik</h2>
+  <p>Akan saya bawa setiap ilmu yang saya pelajari dari kalian semua</p>
+  <a href="#page3" class="button">Next ➡</a>
+  <a href="#page1" class="button">⬅ Back</a>
 </section>
 
-<!-- Section 3 -->
-<section>
-    <div class="wp">
-        <img src="https://i.imgur.com/PLACEHOLDER_BG3.jpg" alt="Ucapan Akhir">
-    </div>
-    <img class="stiker" src="https://i.imgur.com/PLACEHOLDER_STICKER3.gif" alt="Sticker">
-    <h2>Selamat Tinggal & Sampai Jumpa</h2>
-    <p>Terima kasih LF BARAKAH, pengalaman ini akan menjadi kenangan yang tak terlupakan</p>
-    <p>Semoga LF BARAKAH terus berjaya dan maju ke hadapan 🌟</p>
-    <a href="#" class="button" onclick="prevSection(1)">⬅ Back</a>
+<section id="page3" style="display:none;">
+  <div class="wp">
+    <img src="https://i.imgur.com/PLACEHOLDER_BG3.jpg" alt="Akhir">
+  </div>
+  <h2>Sampai Jumpa Lagi</h2>
+  <p>Semoga LF BARAKAH terus berjaya 🌟</p>
+  <a href="#page2" class="button">⬅ Back</a>
 </section>
-
-<!-- Audio -->
-<audio src="insx.mp3" autoplay loop></audio>
-
 
 <script>
-const sections = document.querySelectorAll('section');
-function nextSection(current){
-    sections[current].classList.remove('active');
-    sections[current+1].classList.add('active');
-}
-function prevSection(current){
-    sections[current].classList.remove('active');
-    sections[current-1].classList.add('active');
-}
+// Simple navigation
+const pages = ["page1","page2","page3"];
+pages.forEach((id, i) => {
+  document.querySelector(`[href="#${id}"]`)?.addEventListener('click', (e) => {
+    e.preventDefault();
+    pages.forEach(p => document.getElementById(p).style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  });
+});
 </script>
 
 </body>
